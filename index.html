@@ -4,733 +4,1045 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>カウンセリング マインドセットマニュアル</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream:   #FAF8F5;
-    --white:   #FFFFFF;
-    --gold:    #B89A6A;
-    --gold-lt: #F0E8D8;
-    --navy:    #1E2D40;
-    --charcoal:#3D3D3D;
-    --gray:    #8A8A8A;
-    --gray-lt: #F2F0ED;
-    --rose:    #C97B84;
-    --rose-lt: #FBF0F1;
-    --green:   #5A8A72;
-    --green-lt:#EEF5F1;
-    --red-lt:  #FDF2F2;
-    --red:     #B04040;
-    --border:  #E8E2D9;
-  }
+:root {
+  --cream:      #FAF8F5;
+  --white:      #FFFFFF;
+  --gold:       #B89A6A;
+  --gold-lt:    #F5EDD8;
+  --gold-dk:    #8A6F45;
+  --navy:       #1A2840;
+  --navy-lt:    #2E4A6E;
+  --charcoal:   #2C2C2C;
+  --gray:       #888;
+  --gray-lt:    #F0EDEA;
+  --rose:       #C4606A;
+  --rose-lt:    #FDF0F1;
+  --green:      #3D7A5E;
+  --green-lt:   #EBF5EF;
+  --orange:     #D4740A;
+  --orange-lt:  #FEF3E4;
+  --border:     #E4DDD4;
+  --marker:     rgba(184,154,106,0.18);
+}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-  html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.9;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
 
-  body {
-    background: var(--cream);
-    color: var(--charcoal);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-    line-height: 1.9;
-    font-size: 15px;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  background: rgba(26,40,64,0.96);
+  backdrop-filter: blur(12px);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; color: var(--gold);
+  letter-spacing: 0.15em;
+}
+.nav-badge {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em; background: rgba(255,255,255,0.08);
+  padding: 4px 10px; border-radius: 100px;
+}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,248,245,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 20px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px; letter-spacing: 0.12em;
-    color: var(--gold); font-weight: 300;
-  }
-  .nav-title {
-    font-size: 11px; color: var(--gray);
-    letter-spacing: 0.08em;
-  }
+main { padding-top: 52px; }
 
-  /* ── MAIN WRAPPER ── */
-  main { padding-top: 56px; }
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  padding: 80px 28px 72px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(184,154,106,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(184,154,106,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(46,74,110,0.4) 0%, transparent 70%);
+}
+.hero-inner {
+  position: relative; max-width: 480px; margin: 0 auto;
+}
+.hero-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; letter-spacing: 0.3em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s 0.1s both;
+}
+.hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 28px; font-weight: 500;
+  color: #fff; line-height: 1.7;
+  letter-spacing: 0.06em; margin-bottom: 20px;
+  animation: fadeUp 0.8s 0.25s both;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold), #E8C97A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-line {
+  width: 36px; height: 1px; background: var(--gold);
+  margin: 20px auto;
+  animation: fadeUp 0.8s 0.4s both;
+}
+.hero-sub {
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  line-height: 2; letter-spacing: 0.05em;
+  animation: fadeUp 0.8s 0.5s both;
+}
 
-  /* ── SECTIONS ── */
-  section {
-    padding: 64px 24px;
-    max-width: 680px; margin: 0 auto;
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  section.visible { opacity: 1; transform: translateY(0); }
+/* ── OPENING MESSAGE ── */
+.opening {
+  background: var(--navy);
+  padding: 48px 28px;
+  text-align: center;
+}
+.opening p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px; color: rgba(255,255,255,0.88);
+  line-height: 2.2; font-weight: 400;
+}
+.opening strong {
+  color: var(--gold);
+  font-weight: 500;
+}
 
-  section + section { border-top: 1px solid var(--border); }
+/* ── SECTION ── */
+section {
+  padding: 60px 24px;
+  max-width: 660px; margin: 0 auto;
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+section.visible { opacity:1; transform:translateY(0); }
+section + section { border-top: 1px solid var(--border); }
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--navy);
-    max-width: 100%; padding: 80px 28px 72px;
-    text-align: center; opacity: 1; transform: none;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 60%, rgba(184,154,106,0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(184,154,106,0.08) 0%, transparent 50%);
-  }
-  .hero-inner { position: relative; max-width: 480px; margin: 0 auto; }
-  .hero-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px; letter-spacing: 0.25em;
-    color: var(--gold); margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  .hero h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 26px; font-weight: 400;
-    color: #FFFFFF; line-height: 1.7;
-    letter-spacing: 0.06em; margin-bottom: 24px;
-  }
-  .hero-sub {
-    font-size: 13px; color: rgba(255,255,255,0.55);
-    letter-spacing: 0.04em; line-height: 2;
-  }
-  .gold-line {
-    width: 40px; height: 1px; background: var(--gold);
-    margin: 24px auto;
-  }
+.sec-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; letter-spacing: 0.28em;
+  color: var(--gold); text-transform: uppercase;
+  display: block; margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 21px; font-weight: 500;
+  color: var(--navy); line-height: 1.65;
+  margin-bottom: 8px; letter-spacing: 0.04em;
+}
+.sec-sub {
+  font-size: 13px; color: var(--gray);
+  margin-bottom: 28px; line-height: 1.8;
+}
+.gold-bar {
+  width: 28px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 28px;
+}
+.sec-body { font-size: 14.5px; line-height: 2.1; color: var(--charcoal); }
+.sec-body p { margin-bottom: 18px; }
+.sec-body p:last-child { margin-bottom: 0; }
 
-  /* ── SECTION LABELS ── */
-  .sec-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px; letter-spacing: 0.25em;
-    color: var(--gold); text-transform: uppercase;
-    margin-bottom: 10px; display: block;
-  }
-  .sec-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 20px; font-weight: 400;
-    color: var(--navy); line-height: 1.6;
-    margin-bottom: 28px; letter-spacing: 0.04em;
-  }
-  .sec-body {
-    font-size: 14.5px; line-height: 2.1;
-    color: var(--charcoal);
-  }
-  .sec-body p { margin-bottom: 20px; }
-  .sec-body p:last-child { margin-bottom: 0; }
+/* ── MARKER ── */
+.marker {
+  background: linear-gradient(transparent 60%, rgba(184,154,106,0.35) 60%);
+  padding: 0 2px;
+}
+.marker-rose {
+  background: linear-gradient(transparent 60%, rgba(196,96,106,0.25) 60%);
+  padding: 0 2px;
+}
+.marker-green {
+  background: linear-gradient(transparent 60%, rgba(61,122,94,0.25) 60%);
+  padding: 0 2px;
+}
 
-  /* ── QUOTE BLOCK ── */
-  .quote-block {
-    background: var(--white);
-    border-left: 3px solid var(--gold);
-    padding: 20px 22px;
-    margin: 28px 0;
-    border-radius: 0 8px 8px 0;
-  }
-  .quote-block p {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 15px; font-weight: 400;
-    color: var(--navy); line-height: 1.9;
-    margin: 0 !important;
-  }
+/* ── QUOTE ── */
+.quote {
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  padding: 20px 22px;
+  margin: 28px 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.quote p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15.5px; font-weight: 400;
+  color: var(--navy); line-height: 2;
+  margin: 0 !important;
+}
 
-  /* ── POINT CARDS ── */
-  .point-list { display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
-  .point-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 20px;
-    display: flex; gap: 14px; align-items: flex-start;
-  }
-  .point-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; color: var(--gold);
-    line-height: 1; flex-shrink: 0; padding-top: 2px;
-    font-weight: 300;
-  }
-  .point-text { font-size: 14px; line-height: 1.9; color: var(--charcoal); }
-  .point-text strong {
-    display: block; font-weight: 500;
-    color: var(--navy); margin-bottom: 4px; font-size: 14.5px;
-  }
+/* ── HIGHLIGHT BOX ── */
+.hbox {
+  background: var(--gold-lt);
+  border: 1px solid #DDD0B5;
+  border-radius: 14px;
+  padding: 24px 22px; margin: 28px 0;
+}
+.hbox p { font-size: 14.5px; line-height: 2; color: var(--navy); margin:0 !important; }
+.hbox strong { font-weight: 500; color: var(--gold-dk); }
 
-  /* ── NG / OK ── */
-  .ng-ok-wrap { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
-  .ng-card, .ok-card {
-    border-radius: 12px; padding: 20px;
-  }
-  .ng-card {
-    background: var(--red-lt);
-    border: 1px solid #E8C8C8;
-  }
-  .ok-card {
-    background: var(--green-lt);
-    border: 1px solid #C0D9CB;
-  }
-  .ng-label, .ok-label {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.15em; margin-bottom: 10px;
-    display: block;
-  }
-  .ng-label { color: var(--red); }
-  .ok-label { color: var(--green); }
-  .ng-card p { font-size: 14px; color: #6B3030; line-height: 1.9; }
-  .ok-card p { font-size: 14px; color: #2E5A42; line-height: 1.9; }
-  .ng-card .reason, .ok-card .reason {
-    margin-top: 10px; padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    font-size: 12.5px; opacity: 0.75;
-  }
+.hbox-rose {
+  background: var(--rose-lt);
+  border: 1px solid #EAC8CB;
+  border-radius: 14px;
+  padding: 24px 22px; margin: 28px 0;
+}
+.hbox-rose p { font-size: 14.5px; line-height: 2; color: #5A2020; margin:0 !important; }
 
-  /* ── MIND CARD ── */
-  .mind-card {
-    background: var(--navy);
-    border-radius: 16px; padding: 28px 24px;
-    margin: 28px 0; text-align: center;
-  }
-  .mind-card .mind-en {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px; letter-spacing: 0.25em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 14px;
-  }
-  .mind-card p {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 17px; font-weight: 400;
-    color: #FFFFFF; line-height: 1.9;
-  }
+.hbox-green {
+  background: var(--green-lt);
+  border: 1px solid #B8D9C6;
+  border-radius: 14px;
+  padding: 24px 22px; margin: 28px 0;
+}
+.hbox-green p { font-size: 14.5px; line-height: 2; color: #1A4030; margin:0 !important; }
+.hbox-green strong { color: var(--green); font-weight: 500; }
 
-  /* ── STEP LIST ── */
-  .step-list { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
-  .step-item {
-    display: flex; gap: 16px; position: relative;
-    padding-bottom: 24px;
-  }
-  .step-item:last-child { padding-bottom: 0; }
-  .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-  .step-dot {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--gold); display: flex;
-    align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px; color: #fff; flex-shrink: 0;
-  }
-  .step-line {
-    width: 1px; flex: 1; background: var(--border);
-    margin-top: 6px;
-  }
-  .step-item:last-child .step-line { display: none; }
-  .step-content { padding-top: 6px; }
-  .step-content strong {
-    display: block; font-weight: 500;
-    font-size: 14.5px; color: var(--navy);
-    margin-bottom: 6px;
-  }
-  .step-content p { font-size: 14px; color: var(--charcoal); }
+/* ── MERABIAN CHART ── */
+.merabian {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 32px 24px;
+  margin: 28px 0;
+}
+.merabian-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; letter-spacing: 0.25em;
+  color: var(--gold); text-transform: uppercase;
+  text-align: center; margin-bottom: 28px;
+}
+.merabian-bars { display: flex; flex-direction: column; gap: 16px; }
+.mb-row { display: flex; flex-direction: column; gap: 8px; }
+.mb-label {
+  display: flex; justify-content: space-between;
+  align-items: center;
+}
+.mb-name {
+  font-size: 13px; color: rgba(255,255,255,0.8);
+  display: flex; align-items: center; gap: 8px;
+}
+.mb-icon { font-size: 18px; }
+.mb-pct {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--gold); font-weight: 300;
+}
+.mb-track {
+  height: 8px; background: rgba(255,255,255,0.1);
+  border-radius: 100px; overflow: hidden;
+}
+.mb-fill {
+  height: 100%; border-radius: 100px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.mb-fill.animate { transform: scaleX(1); }
+.fill-55 { background: linear-gradient(90deg, #B89A6A, #E8C97A); width: 55%; }
+.fill-38 { background: linear-gradient(90deg, #6A8AB8, #8AAAD8); width: 38%; }
+.fill-7  { background: linear-gradient(90deg, #7A9A7A, #9ABB9A); width: 7%; }
+.mb-desc {
+  font-size: 12px; color: rgba(255,255,255,0.45);
+  line-height: 1.7; margin-top: 4px;
+}
+.merabian-note {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+.merabian-note p {
+  font-size: 13px; color: rgba(255,255,255,0.6);
+  line-height: 1.9;
+}
+.merabian-note strong { color: var(--gold); font-weight: 500; }
 
-  /* ── HIGHLIGHT ── */
-  .highlight-box {
-    background: var(--gold-lt);
-    border-radius: 12px; padding: 22px 20px;
-    margin: 28px 0;
-    border: 1px solid #DED0B8;
-  }
-  .highlight-box p {
-    font-size: 14px; line-height: 2;
-    color: var(--navy); margin: 0 !important;
-  }
-  .highlight-box strong { font-weight: 500; }
+/* ── EMOTION CARD ── */
+.emotion-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin: 28px 0;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.emotion-icon { font-size: 40px; margin-bottom: 14px; }
+.emotion-card h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px; font-weight: 500;
+  color: var(--navy); margin-bottom: 12px;
+  line-height: 1.6;
+}
+.emotion-card p {
+  font-size: 14px; color: var(--charcoal);
+  line-height: 2; margin: 0;
+}
 
-  /* ── PILL TAGS ── */
-  .pill-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
-  .pill {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 100px; padding: 6px 14px;
-    font-size: 12.5px; color: var(--charcoal);
-  }
+/* ── ARROW COMPARISON ── */
+.compare-wrap { display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
+.compare-card {
+  border-radius: 14px; padding: 22px 20px;
+  position: relative;
+}
+.compare-card.bad {
+  background: var(--rose-lt);
+  border: 1.5px solid #EAC0C4;
+}
+.compare-card.good {
+  background: var(--green-lt);
+  border: 1.5px solid #B0D4BF;
+}
+.compare-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.compare-card.bad .compare-label { color: var(--rose); }
+.compare-card.good .compare-label { color: var(--green); }
+.compare-badge {
+  padding: 2px 10px; border-radius: 100px;
+  font-size: 10px; font-weight: 500;
+}
+.bad .compare-badge { background: var(--rose); color: #fff; }
+.good .compare-badge { background: var(--green); color: #fff; }
+.compare-thought {
+  font-size: 13.5px; line-height: 2;
+  font-style: italic;
+}
+.bad .compare-thought { color: #7A3038; }
+.good .compare-thought { color: #1A5038; }
+.compare-arrow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--gray);
+  margin-top: 10px;
+}
+.arrow-line {
+  flex: 1; height: 1px;
+  background: currentColor; opacity: 0.3;
+}
 
-  /* ── CUSTOMER MIND ── */
-  .mind-split { display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
-  .mind-row {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 10px; padding: 16px 18px;
-  }
-  .mind-row .mrow-label {
-    font-size: 11px; letter-spacing: 0.1em;
-    color: var(--gray); margin-bottom: 6px; display: block;
-  }
-  .mind-row p { font-size: 14px; color: var(--navy); line-height: 1.8; }
+.arrow-vs {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--gray);
+  padding: 4px 0;
+  letter-spacing: 0.1em;
+}
 
-  /* ── SUMMARY GRID ── */
-  .summary-grid { display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
-  .summary-item {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 10px; padding: 16px 18px;
-    display: flex; gap: 12px; align-items: center;
-  }
-  .summary-icon {
-    font-size: 20px; flex-shrink: 0;
-    width: 36px; text-align: center;
-  }
-  .summary-text { font-size: 14px; color: var(--charcoal); line-height: 1.8; }
-  .summary-text strong { color: var(--navy); font-weight: 500; display: block; }
+/* ── ROAD ANALOGY ── */
+.road-card {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+  border-radius: 20px;
+  padding: 32px 24px;
+  margin: 28px 0;
+  text-align: center;
+}
+.road-icon { font-size: 48px; margin-bottom: 16px; }
+.road-card h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px; color: #fff;
+  font-weight: 500; margin-bottom: 16px;
+  line-height: 1.7;
+}
+.road-card p {
+  font-size: 13.5px; color: rgba(255,255,255,0.65);
+  line-height: 2; margin: 0;
+}
+.road-card strong { color: var(--gold); font-weight: 500; }
 
-  /* ── FINAL CTA ── */
-  .final-section {
-    background: var(--navy); padding: 72px 28px;
-    max-width: 100%; text-align: center;
-    opacity: 1; transform: none;
-  }
-  .final-section .sec-label { margin-bottom: 12px; }
-  .final-section .sec-title { color: #FFFFFF; margin-bottom: 20px; font-size: 19px; }
-  .final-section .sec-body { color: rgba(255,255,255,0.6); font-size: 14px; }
+/* ── ACCORDION ── */
+.accordion { margin: 20px 0; }
+.acc-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.acc-item.open { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.acc-trigger {
+  width: 100%; padding: 18px 20px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  background: none; border: none; cursor: pointer;
+  text-align: left; gap: 12px;
+}
+.acc-trigger-text {
+  font-size: 14.5px; font-weight: 500;
+  color: var(--navy); line-height: 1.5;
+}
+.acc-trigger-icon {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--gray-lt);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 14px;
+  transition: transform 0.3s, background 0.3s;
+  color: var(--gold);
+}
+.acc-item.open .acc-trigger-icon {
+  transform: rotate(45deg);
+  background: var(--gold-lt);
+}
+.acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.acc-body-inner {
+  padding: 0 20px 22px;
+  font-size: 14px; line-height: 2.1;
+  color: var(--charcoal);
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+.acc-body-inner p { margin-bottom: 14px; }
+.acc-body-inner p:last-child { margin-bottom: 0; }
 
-  /* ── TOC ── */
-  .toc-wrap {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px 20px; margin-top: 28px;
-  }
-  .toc-title {
-    font-size: 11px; letter-spacing: 0.15em; color: var(--gray);
-    margin-bottom: 16px; display: block;
-  }
-  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-  .toc-list li a {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px; border-radius: 8px;
-    text-decoration: none; color: var(--charcoal);
-    font-size: 13.5px; transition: background 0.2s;
-  }
-  .toc-list li a:hover { background: var(--gray-lt); }
-  .toc-list li a .toc-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px; color: var(--gold); flex-shrink: 0;
-  }
+/* ── POINT CARDS ── */
+.point-list { display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
+.point-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.point-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.point-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; color: var(--gold);
+  line-height: 1; flex-shrink: 0; padding-top: 2px;
+}
+.point-text { font-size: 14px; line-height: 1.95; }
+.point-text strong {
+  display: block; font-weight: 500;
+  color: var(--navy); margin-bottom: 6px; font-size: 14.5px;
+}
 
-  /* ── FOOTER ── */
-  footer {
-    text-align: center; padding: 32px 24px;
-    font-size: 11px; color: var(--gray);
-    letter-spacing: 0.08em; border-top: 1px solid var(--border);
-  }
+/* ── NG/OK ── */
+.ng-ok-wrap { display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
+.ng-card, .ok-card { border-radius: 12px; padding: 20px; }
+.ng-card { background: var(--rose-lt); border: 1px solid #EAC8C8; }
+.ok-card { background: var(--green-lt); border: 1px solid #C0D9CB; }
+.ng-label, .ok-label {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.ng-label { color: var(--rose); }
+.ok-label { color: var(--green); }
+.ng-card p { font-size: 14px; color: #6B3030; line-height: 2; }
+.ok-card p { font-size: 14px; color: #1A4030; line-height: 2; }
+.card-reason {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  font-size: 12.5px; opacity: 0.7; line-height: 1.8;
+}
 
-  /* ── DIVIDER ── */
-  .gold-divider {
-    width: 32px; height: 1px; background: var(--gold);
-    margin: 0 0 28px 0;
-  }
+/* ── STEP LIST ── */
+.step-list { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+.step-item { display: flex; gap: 16px; padding-bottom: 24px; }
+.step-item:last-child { padding-bottom: 0; }
+.step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.step-dot {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; color: #fff;
+}
+.step-line { width: 1px; flex: 1; background: var(--border); margin-top: 6px; }
+.step-item:last-child .step-line { display: none; }
+.step-content { padding-top: 6px; }
+.step-content strong {
+  display: block; font-weight: 500;
+  font-size: 14.5px; color: var(--navy); margin-bottom: 6px;
+}
+.step-content p { font-size: 14px; color: var(--charcoal); }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-inner > * {
-    animation: fadeUp 0.8s ease both;
-  }
-  .hero-label   { animation-delay: 0.1s; }
-  .hero h1      { animation-delay: 0.25s; }
-  .gold-line    { animation-delay: 0.4s; }
-  .hero-sub     { animation-delay: 0.5s; }
+/* ── PILL TAGS ── */
+.pill-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.pill {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 100px; padding: 7px 16px;
+  font-size: 13px; color: var(--charcoal);
+}
+
+/* ── SUMMARY ── */
+.summary-grid { display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
+.summary-item {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 18px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.summary-icon { font-size: 22px; flex-shrink: 0; width: 34px; text-align: center; padding-top: 2px; }
+.summary-text { font-size: 14px; color: var(--charcoal); line-height: 1.85; }
+.summary-text strong { color: var(--navy); font-weight: 500; display: block; margin-bottom: 2px; }
+
+/* ── TOC ── */
+.toc-wrap {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px 20px; margin-top: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.toc-title {
+  font-size: 10px; letter-spacing: 0.18em; color: var(--gray);
+  margin-bottom: 16px; display: block; text-transform: uppercase;
+}
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list li a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 12px; border-radius: 10px;
+  text-decoration: none; color: var(--charcoal);
+  font-size: 13.5px; transition: background 0.2s;
+}
+.toc-list li a:hover { background: var(--gray-lt); }
+.toc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: var(--gold); flex-shrink: 0;
+}
+
+/* ── MIND CARD (dark) ── */
+.mind-dark {
+  background: var(--navy);
+  border-radius: 18px; padding: 30px 24px;
+  margin: 28px 0; text-align: center;
+}
+.mind-dark .mind-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; letter-spacing: 0.25em;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
+}
+.mind-dark p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px; color: #fff; line-height: 2;
+}
+.mind-dark strong { color: var(--gold); font-weight: 500; }
+
+/* ── CALLOUT ── */
+.callout {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--orange-lt); border: 1px solid #F0C080;
+  border-radius: 12px; padding: 18px 18px; margin: 20px 0;
+}
+.callout-icon { font-size: 20px; flex-shrink: 0; }
+.callout-text { font-size: 13.5px; color: #5A3000; line-height: 2; }
+.callout-text strong { font-weight: 500; }
+
+/* ── FINAL ── */
+.final {
+  background: var(--navy); padding: 72px 28px;
+  text-align: center;
+}
+.final .sec-label { margin-bottom: 12px; }
+.final h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 21px; color: #fff;
+  font-weight: 500; line-height: 1.7;
+  margin-bottom: 20px; letter-spacing: 0.04em;
+}
+.final p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 2; }
+.final strong { color: var(--gold); font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 28px 24px;
+  font-size: 11px; color: var(--gray);
+  letter-spacing: 0.08em; border-top: 1px solid var(--border);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <span class="nav-logo">Belle Esthetic</span>
-  <span class="nav-title">スタッフ教育マニュアル</span>
+  <span class="nav-badge">スタッフ教育マニュアル</span>
 </nav>
 
+<main>
+
 <!-- HERO -->
-<section class="hero" id="top">
+<div class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Counseling Mindset Manual</div>
-    <h1>カウンセリング<br>マインドセット<br>マニュアル</h1>
-    <div class="gold-line"></div>
-    <p class="hero-sub">お客様の悩みに、<br>本当に向き合うために。</p>
+    <div class="hero-en">Counseling Mindset Manual</div>
+    <h1>すべては、<br><em>お客様のために。</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">このマニュアルは「知識」ではなく<br>「考え方」を変えるための教材です。</p>
   </div>
-</section>
+</div>
 
 <!-- FINAL（冒頭） -->
-<section class="final-section">
-  <span class="sec-label">Final Message</span>
-  <h2 class="sec-title">お客様の笑顔のために、<br>私たちができること。</h2>
-<div class="gold-line"></div>
-<div class="sec-body">
-  <p>カウンセリングに「正解」はありません。<br>
-  でも、<strong>「お客様の笑顔を見たい」という気持ち</strong>があれば、<br>
-  言葉は自然と変わっていきます。</p>
-  <p>お客様が鏡を見て笑顔になる瞬間。<br>
-  「変わった」と喜んでくれる瞬間。<br>
-  その笑顔のために、今日も丁寧に向き合いましょう。</p>
+<div class="final">
+  <span class="sec-label">はじめに</span>
+  <h2>お客様の笑顔のために、<br>私たちができること。</h2>
+  <div class="hero-line"></div>
+  <p>
+    カウンセリングに「正解」はありません。<br>
+    でも、<strong>「お客様の笑顔を見たい」という気持ち</strong>があれば、<br>
+    言葉は自然と変わっていきます。<br><br>
+    お客様が鏡を見て笑顔になる瞬間。<br>
+    「変わった」と喜んでくれる瞬間。<br>
+    その笑顔のために、今日も丁寧に向き合いましょう。
+  </p>
 </div>
-</section>
+
+<!-- OPENING -->
+<div class="opening">
+  <p>
+    あなたが今、<strong>「営業が怖い」「提案に自信がない」</strong><br>
+    そう感じているなら、それは当然のことです。<br><br>
+    でも読み終えた後、<br>
+    きっとその気持ちは変わります。
+  </p>
+</div>
 
 <!-- 目次 -->
 <section id="toc">
   <span class="sec-label">Contents</span>
   <h2 class="sec-title">このマニュアルについて</h2>
+  <div class="gold-bar"></div>
   <div class="sec-body">
-    <p>このマニュアルは、カウンセリングの「技術」ではなく<br>
-    <strong>「考え方・マインドセット」</strong>をお伝えするものです。</p>
+    <p>このマニュアルは、カウンセリングの「技術」ではなく<span class="marker">「考え方・マインドセット」</span>をお伝えするものです。</p>
     <p>新しいことを覚えようとしなくても大丈夫です。<br>
-    ただ、<strong>お客様との向き合い方を少し変えるだけ</strong>で<br>
-    カウンセリングは大きく変わります。</p>
+    ただ、<strong>お客様との向き合い方を少し変えるだけ</strong>で、カウンセリングは大きく変わります。</p>
   </div>
   <div class="toc-wrap">
     <span class="toc-title">CONTENTS</span>
     <ul class="toc-list">
-      <li><a href="#hajimeni"><span class="toc-num">01</span>はじめに ── カウンセリングとは何か</a></li>
-      <li><a href="#mindset"><span class="toc-num">02</span>基礎マインドセット</a></li>
-      <li><a href="#customer"><span class="toc-num">03</span>お客様の本当の気持ち</a></li>
-      <li><a href="#ng-ok"><span class="toc-num">04</span>NG例・OK例</a></li>
-      <li><a href="#propose"><span class="toc-num">05</span>提案の考え方</a></li>
-      <li><a href="#closing"><span class="toc-num">06</span>クロージングの考え方</a></li>
-      <li><a href="#confidence"><span class="toc-num">07</span>自信ある話し方</a></li>
-      <li><a href="#benefit"><span class="toc-num">08</span>ベネフィットを伝える</a></li>
-      <li><a href="#summary"><span class="toc-num">09</span>まとめ</a></li>
+      <li><a href="#sec1"><span class="toc-num">01</span>カウンセリングとは何か</a></li>
+      <li><a href="#sec2"><span class="toc-num">02</span>第一印象がすべてを決める</a></li>
+      <li><a href="#sec3"><span class="toc-num">03</span>人は「わかってほしい」生き物</a></li>
+      <li><a href="#sec4"><span class="toc-num">04</span>「売る」のではなく「導く」</a></li>
+      <li><a href="#sec5"><span class="toc-num">05</span>提案は「押し売り」ではなく親切</a></li>
+      <li><a href="#sec6"><span class="toc-num">06</span>NG例・OK例</a></li>
+      <li><a href="#sec7"><span class="toc-num">07</span>クロージングの考え方</a></li>
+      <li><a href="#sec8"><span class="toc-num">08</span>自信ある話し方</a></li>
+      <li><a href="#sec9"><span class="toc-num">09</span>ベネフィットを伝える</a></li>
+      <li><a href="#sec10"><span class="toc-num">10</span>まとめ</a></li>
     </ul>
   </div>
 </section>
 
-<!-- 01 はじめに -->
-<section id="hajimeni">
+<!-- 01 カウンセリングとは -->
+<section id="sec1">
   <span class="sec-label">01 / Introduction</span>
   <h2 class="sec-title">カウンセリングとは<br>何のための時間か</h2>
-  <div class="gold-divider"></div>
+  <div class="gold-bar"></div>
   <div class="sec-body">
-    <p>多くの方が、カウンセリングを<br>
-    「お客様の情報を聞く時間」と捉えています。</p>
-    <p>でも本当は違います。</p>
+    <p>多くのスタッフが、カウンセリングを「お客様の情報を確認する時間」と捉えています。</p>
+    <p>でも本当は、違います。</p>
   </div>
 
-  <div class="mind-card">
+  <div class="mind-dark">
     <div class="mind-en">The Real Purpose</div>
     <p>カウンセリングとは、<br>
-    お客様が「言葉にできていない悩み」を<br>
+    お客様が<strong>「言葉にできていない悩み」</strong>を<br>
     一緒に見つけていく時間です。</p>
   </div>
 
   <div class="sec-body">
-    <p>お客様は来店前から悩みを抱えています。<br>
-    でも、その悩みを<strong>どう言葉にしていいかわからない</strong>ことが多い。</p>
-    <p>あなたの役割は、カウンセリングシートに書かれた内容を確認することではなく、<br>
-    <strong>お客様も気づいていないような隠れた本音を引き出すこと</strong>です。</p>
+    <p>お客様は来店前から悩みを抱えています。でも、その悩みを<span class="marker">どう言葉にしていいかわからない</span>ことが多い。</p>
+    <p>あなたの役割は、用紙を確認することではなく、<strong>お客様の本音を引き出すこと</strong>です。</p>
   </div>
 
-  <div class="quote-block">
-    <p>「カウンセリングは問診ではなく、<br>お客様のことを知り、悩みを一緒に掘り下げる時間」</p>
+  <div class="quote">
+    <p>「カウンセリングは問診ではない。<br>悩みを一緒に掘り下げる時間だ。」</p>
   </div>
-</section>
 
-<!-- 02 マインドセット -->
-<section id="mindset">
-  <span class="sec-label">02 / Mindset</span>
-  <h2 class="sec-title">カウンセリングを変える<br>5つの基礎マインド</h2>
-  <div class="gold-divider"></div>
-
-  <div class="point-list">
-    <div class="point-card">
-      <div class="point-num">1</div>
-      <div class="point-text">
-        <strong>声・表情・トーンが「信頼」をつくる</strong>
-        どんなに正しい言葉を言っても、声が小さく・表情が硬ければ、
-        お客様は不安を感じ、退屈します。<br>
-        「この人に任せても大丈夫」と思ってもらうのは、
-        言葉より先に<strong>声のトーンと表情</strong>です。
-      </div>
-    </div>
-    <div class="point-card">
-      <div class="point-num">2</div>
-      <div class="point-text">
-        <strong>「知りたい」という気持ちが伝わる</strong>
-        マニュアル通りに質問を進めるのと、
-        お客様を本当に知りたいと思って聞くのでは、
-        お客様への伝わり方がまったく違います。<br>
-        「このお客様のことをもっと知りたい」という気持ちが、
-        自然と<strong>会話の質</strong>を変えます。
-      </div>
-    </div>
-    <div class="point-card">
-      <div class="point-num">3</div>
-      <div class="point-text">
-        <strong>「売る」ではなく「改善へ導く」</strong>
-        提案は売り込みではありません。<br>
-        お客様が持っている悩みを改善するために、
-        必要な手段を一緒に考えることです。<br>
-        <strong>「改善させてあげたい」という気持ち</strong>が提案の本質です。
-      </div>
-    </div>
-    <div class="point-card">
-      <div class="point-num">4</div>
-      <div class="point-text">
-        <strong>提案しないことの方が、失礼</strong>
-        「断られたくない」「嫌われたくない」という気持ちは自然です。<br>
-        でも、本当に必要な提案をしないことは、
-        お客様が改善できるチャンスを奪うことでもあります。<br>
-        <strong>プロとして、必要なことを伝える勇気</strong>を持ちましょう。
-      </div>
-    </div>
-    <div class="point-card">
-      <div class="point-num">5</div>
-      <div class="point-text">
-        <strong>プロとして、安心感を与える</strong>
-        お客様はスタッフに「専門家」として接することを求めています。<br>
-        自信を持った話し方・立ち振る舞い・身だしなみが、<br>
-        <strong>「この人なら信頼できる」という安心感</strong>につながります。
-      </div>
+  <div class="callout">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text">
+      <strong>ポイント：</strong>「記入内容の確認作業」になっていませんか？
+      お客様の「なぜ悩んでいるのか」「どうなりたいのか」まで引き出せてこそ、本当のカウンセリングです。
     </div>
   </div>
 </section>
 
-<!-- 03 お客様心理 -->
-<section id="customer">
-  <span class="sec-label">03 / Customer Psychology</span>
-  <h2 class="sec-title">お客様の<br>本当の気持ちを知る</h2>
-  <div class="gold-divider"></div>
+<!-- 02 第一印象 -->
+<section id="sec2">
+  <span class="sec-label">02 / First Impression</span>
+  <h2 class="sec-title">第一印象が<br>すべてを決める</h2>
+  <p class="sec-sub">── メラビアンの法則</p>
+  <div class="gold-bar"></div>
+
   <div class="sec-body">
-    <p>お客様は来店前から悩んでいます。<br>
-    そして、ほとんどのお客様が<strong>3つの気持ち</strong>を持っています。</p>
+    <p>実は、お客様があなたへの「信頼」を決めるのは、<span class="marker">話す内容よりも先</span>です。</p>
+    <p>心理学者アルバート・メラビアンの研究によると、人が受け取る印象はこんな割合になっています。</p>
   </div>
 
-  <div class="mind-split">
-    <div class="mind-row">
-      <span class="mrow-label">お客様が「本当に」求めているもの</span>
-      <p>悩みを改善したい。<br>
-      自分の肌に自信を持ちたい。<br>
-      変わった自分を感じたい。</p>
+  <div class="merabian" id="merabian-chart">
+    <div class="merabian-title">Mehrabian's Rule ── 印象を決める3要素</div>
+    <div class="merabian-bars">
+      <div class="mb-row">
+        <div class="mb-label">
+          <div class="mb-name"><span class="mb-icon">👁</span>視覚情報（表情・目線・しぐさ・見た目）</div>
+          <div class="mb-pct">55%</div>
+        </div>
+        <div class="mb-track"><div class="mb-fill fill-55" id="fill1"></div></div>
+        <div class="mb-desc">笑顔・立ち振る舞い・清潔感・目線の安心感</div>
+      </div>
+      <div class="mb-row">
+        <div class="mb-label">
+          <div class="mb-name"><span class="mb-icon">🎵</span>聴覚情報（声のトーン・大きさ・速さ）</div>
+          <div class="mb-pct">38%</div>
+        </div>
+        <div class="mb-track"><div class="mb-fill fill-38" id="fill2"></div></div>
+        <div class="mb-desc">声の明るさ・落ち着き・自信のある話し方</div>
+      </div>
+      <div class="mb-row">
+        <div class="mb-label">
+          <div class="mb-name"><span class="mb-icon">💬</span>言語情報（話している言葉の意味・内容）</div>
+          <div class="mb-pct">7%</div>
+        </div>
+        <div class="mb-track"><div class="mb-fill fill-7" id="fill3"></div></div>
+        <div class="mb-desc">実は内容よりも「雰囲気」が伝わっている</div>
+      </div>
     </div>
-    <div class="mind-row">
-      <span class="mrow-label">お客様が「心の中で」感じていること</span>
-      <p>本当に効果があるのか不安。<br>
-      高い金額を払う価値があるかわからない。<br>
-      押し売りされたくない。</p>
-    </div>
-    <div class="mind-row">
-      <span class="mrow-label">お客様を動かすもの</span>
-      <p>「この人は信頼できる」という感覚。<br>
-      「自分の悩みをわかってくれた」という共感。<br>
-      「変われるかもしれない」という期待感。</p>
+    <div class="merabian-note">
+      <p>お客様は<strong>「何を話すか」よりも「どんな雰囲気で話しているか」</strong>を強く感じ取っている。<br>
+      知識より先に、笑顔・安心感・声のトーン・自信が大切。</p>
     </div>
   </div>
 
-  <div class="highlight-box">
-    <p>お客様は「回数券を買いたい」と思って来店しているのではありません。<br>
-    <strong>「悩みを改善したい」と思って来店しています。</strong><br><br>
-    提案は「売りつけること」ではなく、
-    お客様の目的を一緒に叶えることです。</p>
+  <div class="hbox">
+    <p><strong>つまりこういうこと ──</strong><br>
+    どんなに正しい提案をしても、声が小さく・表情が硬ければ、お客様は不安を感じます。
+    逆に、笑顔で自信を持って話すだけで、<span class="marker">言葉の価値は何倍にも上がります。</span></p>
   </div>
 </section>
 
-<!-- 04 NG/OK -->
-<section id="ng-ok">
-  <span class="sec-label">04 / NG & OK</span>
+<!-- 03 承認欲求 -->
+<section id="sec3">
+  <span class="sec-label">03 / Human Psychology</span>
+  <h2 class="sec-title">人は<br>「わかってほしい」生き物</h2>
+  <div class="gold-bar"></div>
+
+  <div class="sec-body">
+    <p>人間には誰しも、<span class="marker-rose">「自分の存在を認めてほしい」「自分のことをわかってほしい」</span>という強い欲求があります。</p>
+    <p>お客様も同じです。単にケアを受けるだけでなく、<strong>「一人の人間として大切に扱われたい」</strong>という気持ちを、無意識に持って来店しています。</p>
+  </div>
+
+  <div class="emotion-card">
+    <div class="emotion-icon">🌸</div>
+    <h3>「あなたのことを<br>もっと知りたい」</h3>
+    <p>この一言が、お客様の心を開く。<br>
+    純粋な好奇心と関心が、<br>
+    最大の信頼につながります。</p>
+  </div>
+
+  <div class="sec-body">
+    <p>スタッフが「あなたをもっと知りたい」という姿勢で接することは、お客様の承認欲求をこれ以上ない形で満たすことになります。</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-trigger-text">具体的にどう接すればいい？</span>
+        <span class="acc-trigger-icon">＋</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>• 「最近、どんなことが気になっていますか？」と、まず相手に話してもらう</p>
+          <p>• 相手が話したことを繰り返す（「〇〇が気になっているんですね」）</p>
+          <p>• 「いつ頃からですか？」「どんなときに気になりますか？」と深掘りする</p>
+          <p>• うなずき・相槌で「ちゃんと聞いていますよ」を体で伝える</p>
+        </div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-trigger-text">承認欲求が満たされるとどうなる？</span>
+        <span class="acc-trigger-icon">＋</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>「この人は私のことをわかってくれている」という感覚が生まれると、お客様の警戒心がほぐれます。</p>
+          <p>そうなると、提案を「売り込み」ではなく<strong>「この人が勧めるなら信頼できる」</strong>と受け取ってもらえるようになります。</p>
+          <p>信頼関係があれば、クロージングは自然な流れになります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hbox">
+    <p><strong>共感 → 寄り添い → 信頼</strong><br>
+    この順番を意識するだけで、カウンセリングの質は大きく変わります。<br>
+    お客様の言葉に、まず<span class="marker">「そうなんですね」と受け止める一言</span>を。</p>
+  </div>
+</section>
+
+<!-- 04 導く -->
+<section id="sec4">
+  <span class="sec-label">04 / Mindset Shift</span>
+  <h2 class="sec-title">「売る」のではなく<br>「導く」</h2>
+  <div class="gold-bar"></div>
+
+  <div class="sec-body">
+    <p>営業が怖い、提案に自信がない。その理由のほとんどは、<span class="marker-rose">「意識の矢印が自分に向いているから」</span>です。</p>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="compare-card bad">
+      <div class="compare-label">
+        <span class="compare-badge">❌ 自己執着の営業</span>意識の矢印が「自分」に向いている
+      </div>
+      <div class="compare-thought">
+        「今月あと〇件売らなきゃ…」<br>
+        「断られたらショックだな…」<br>
+        「嫌われたくない…」
+      </div>
+      <div class="compare-arrow">
+        <span class="arrow-line"></span>
+        <span>心がすり減り、お客様にも「売り込まれている」と伝わる</span>
+        <span class="arrow-line"></span>
+      </div>
+    </div>
+
+    <div class="arrow-vs">↕</div>
+
+    <div class="compare-card good">
+      <div class="compare-label">
+        <span class="compare-badge">⭕️ 他者貢献の営業</span>意識の矢印が「お客様」に向いている
+      </div>
+      <div class="compare-thought">
+        「この人は何に困っているんだろう？」<br>
+        「どうすればこの人の毎日が楽になる？」<br>
+        「改善できたら、どれだけ喜ぶだろう」
+      </div>
+      <div class="compare-arrow">
+        <span class="arrow-line"></span>
+        <span>プレッシャーが消え、お客様も安心して話せる</span>
+        <span class="arrow-line"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mind-dark">
+    <div class="mind-en">The Key Insight</div>
+    <p>意識の矢印を<strong>お客様に向けるだけ</strong>で、<br>
+    営業のプレッシャーや罪悪感は<br>
+    驚くほど消え去ります。</p>
+  </div>
+
+  <div class="sec-body">
+    <p>「お客様を改善へ導く」という他者貢献のマインドで仕事をすることは、お客様をハッピーにするだけでなく、</p>
+  </div>
+
+  <div class="hbox-green">
+    <p>スタッフ自身が<br>
+    <strong>「自分の仕事に誇りを持ち、毎日を楽しく、幸せに働くため」</strong><br>
+    の最大の特効薬でもあります。</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-trigger-text">意識の矢印を変えるには？</span>
+        <span class="acc-trigger-icon">＋</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p>カウンセリング前に、心の中でこう問いかけてみてください。</p>
+          <p>「今日のこのお客様は、何に困っているんだろう？」<br>
+          「改善できたら、どんな顔をして帰ってくれるだろう？」</p>
+          <p>これだけで、自然と意識がお客様に向かい始めます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 親切な提案 -->
+<section id="sec5">
+  <span class="sec-label">05 / Proposal</span>
+  <h2 class="sec-title">提案は「押し売り」ではなく<br>プロとしての親切</h2>
+  <div class="gold-bar"></div>
+
+  <div class="road-card">
+    <div class="road-icon">🗺</div>
+    <h3>道に迷っている人に、<br>道を教えてあげる。</h3>
+    <p>目の前に、道に迷って困っている人がいたら<br>
+    親切に行き先を教えてあげますよね。<br><br>
+    私たちの提案も、<strong>それと全く同じです。</strong></p>
+  </div>
+
+  <div class="sec-body">
+    <p>お悩みを抱えたお客様（＝道に迷っている人）に、商品という解決策（＝正しいルート）を教えてあげるのは、プロとしての<span class="marker">「最高の親切」</span>です。</p>
+    <p>提案しないことは、迷っている人を見て見ぬふりをすることと同じです。</p>
+  </div>
+
+  <div class="hbox">
+    <p><strong>本当に必要だと思う提案をしないことの方が、失礼。</strong><br><br>
+    お客様は「悩みを改善したい」と思って来店しています。その気持ちに応えることが、プロとしての仕事です。</p>
+  </div>
+
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-trigger-text">提案の4ステップを確認する</span>
+        <span class="acc-trigger-icon">＋</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-left"><div class="step-dot">1</div><div class="step-line"></div></div>
+              <div class="step-content">
+                <strong>悩みを深掘りする</strong>
+                <p>「いつ頃からですか？」「どんなときに気になりますか？」</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-left"><div class="step-dot">2</div><div class="step-line"></div></div>
+              <div class="step-content">
+                <strong>理想の状態をイメージさせる</strong>
+                <p>「改善したら、どんな気持ちになりたいですか？」</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-left"><div class="step-dot">3</div><div class="step-line"></div></div>
+              <div class="step-content">
+                <strong>必要な手段として提案する</strong>
+                <p>「そのお悩みには、〇〇が一番効果的です」</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-left"><div class="step-dot">4</div></div>
+              <div class="step-content">
+                <strong>一緒に「次」を決める</strong>
+                <p>「まずは〇回から始めてみましょう」</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 NG/OK -->
+<section id="sec6">
+  <span class="sec-label">06 / NG & OK</span>
   <h2 class="sec-title">こんな言い方、<br>していませんか？</h2>
-  <div class="gold-divider"></div>
+  <div class="gold-bar"></div>
   <div class="sec-body">
-    <p>ほんの少しの言い方の違いで、
-    お客様の受け取り方は大きく変わります。<br>
-    よくあるNG例と、OK例を確認してみましょう。</p>
+    <p>ほんの少しの言い方の違いで、お客様の受け取り方は大きく変わります。</p>
   </div>
 
   <div class="ng-ok-wrap">
     <div class="ng-card">
-      <span class="ng-label">NG ── こんな言い方は避けましょう</span>
+      <span class="ng-label">❌ NG</span>
       <p>「よかったら回数券はいかがですか？」</p>
-      <p class="reason">「よかったら」という言葉が、提案の自信のなさを伝えてしまいます。お客様は「無理に勧めているのかな」と感じます。</p>
+      <p class="card-reason">「よかったら」が自信のなさを伝えてしまう。お客様は「無理に勧めているのかな」と感じることも。</p>
     </div>
     <div class="ok-card">
-      <span class="ok-label">OK ── こう言い換えてみましょう</span>
-      <p>「お悩みの〇〇を改善するには、継続的なケアが一番効果的です。回数券を使うと、毎回の負担も少なく続けやすくなりますので〇〇様に一番おすすめなのはこちらです。」</p>
-      <p class="reason">お客様の悩みの言葉を引用した提案なので、「自分のための提案だ」と受け取ってもらえます。</p>
+      <span class="ok-label">⭕️ OK</span>
+      <p>「〇〇のお悩みを改善するには継続ケアが一番です。回数券なら毎回の負担も少なく続けやすいですよ。」</p>
+      <p class="card-reason">悩みを起点にした提案で「自分のための提案だ」と受け取ってもらえます。</p>
     </div>
   </div>
 
   <div class="ng-ok-wrap">
     <div class="ng-card">
-      <span class="ng-label">NG</span>
-      <p>「施術では〇〇という成分を使って、△△という手順で……」</p>
-      <p class="reason">施術の説明は専門的すぎて、お客様には「自分にどんな変化があるのか」が伝わりにくい。</p>
+      <span class="ng-label">❌ NG</span>
+      <p>「この施術では〇〇という成分を使って、△△という手順で……」</p>
+      <p class="card-reason">専門的すぎて「自分にどんな変化があるのか」が伝わらない。</p>
     </div>
     <div class="ok-card">
-      <span class="ok-label">OK</span>
-      <p>「この施術を続けることで、毛穴が目立たなくなって、スッピンでも自信が持てるようになるお客様が多いですよ。」</p>
-      <p class="reason">「自分がどうなれるか」が明確に伝わるので、お客様がイメージしやすくなり、未来へのワクワク感を与えることができます。</p>
+      <span class="ok-label">⭕️ OK</span>
+      <p>「続けることで毛穴が目立たなくなって、スッピンでも自信が持てるようになるお客様が多いですよ。」</p>
+      <p class="card-reason">「変わった先の自分」が明確に伝わります。</p>
     </div>
   </div>
 
   <div class="ng-ok-wrap">
     <div class="ng-card">
-      <span class="ng-label">NG</span>
+      <span class="ng-label">❌ NG</span>
       <p>「……いかがでしょう？（語尾が小さくなる）」</p>
-      <p class="reason">語尾が弱くなると「本当に大丈夫なのかな」という不安をお客様に与えます。</p>
+      <p class="card-reason">語尾が弱くなると「本当に大丈夫なのかな」という不安を与えます。</p>
     </div>
     <div class="ok-card">
-      <span class="ok-label">OK</span>
+      <span class="ok-label">⭕️ OK</span>
       <p>「ぜひ、一度試してみてください。続けることで必ず変化を感じていただけます。」</p>
-      <p class="reason">自信のある言葉はお客様に安心感を与え、「信頼できる」という印象につながります。</p>
-    </div>
-  </div>
-
-  <div class="ng-ok-wrap">
-    <div class="ng-card">
-      <span class="ng-label">NG</span>
-      <p>「もし興味があればお声がけください……」（クロージングで引く）</p>
-      <p class="reason">お客様に判断をすべて委ねてしまうと、せっかくの機会が流れてしまいます。</p>
-    </div>
-    <div class="ok-card">
-      <span class="ok-label">OK</span>
-      <p>「今日のご来店で、〇〇というお悩みが改善できるケアを始められます。いつ頃から続けていきたいですか？」</p>
-      <p class="reason">お客様が「改善したい」という気持ちを確認したうえで、次のステップを一緒に考えるクロージングです。</p>
+      <p class="card-reason">自信のある言葉が「信頼できる」という印象につながります。</p>
     </div>
   </div>
 </section>
 
-<!-- 05 提案の考え方 -->
-<section id="propose">
-  <span class="sec-label">05 / How to Propose</span>
-  <h2 class="sec-title">提案は「売り込み」じゃない。<br>悩みを解決する手段です。</h2>
-  <div class="gold-divider"></div>
-
-  <div class="sec-body">
-    <p>「提案することが申し訳ない」<br>
-    「断られるのが怖い」<br>
-    そう感じているスタッフは多いです。</p>
-    <p>でも、一度立ち止まって考えてみてください。</p>
-  </div>
-
-  <div class="quote-block">
-    <p>もし友達が「最近、肌が気になって…」と言ったとき、<br>
-    あなたは「よかったら試してみて」と小さな声で言いますか？<br><br>
-    きっと「これ絶対いいよ！」と自信を持って勧めますよね。</p>
-  </div>
-
-  <div class="sec-body">
-    <p>お客様への提案も、それと同じです。<br>
-    <strong>本当に良いと思うから、伝える。</strong><br>
-    それが「お客様本位の提案」です。</p>
-  </div>
-
-  <div class="step-list">
-    <div class="step-item">
-      <div class="step-left">
-        <div class="step-dot">1</div>
-        <div class="step-line"></div>
-      </div>
-      <div class="step-content">
-        <strong>悩みを深掘りする</strong>
-        <p>「どのくらい気になっていますか？」<br>
-        「いつ頃から悩んでいましたか？」<br>
-        お客様自身が悩みを言葉にできるよう、丁寧に引き出す。</p>
-      </div>
-    </div>
-    <div class="step-item">
-      <div class="step-left">
-        <div class="step-dot">2</div>
-        <div class="step-line"></div>
-      </div>
-      <div class="step-content">
-        <strong>理想の状態をイメージさせる</strong>
-        <p>「改善したら、どんな気持ちになれそうですか？」<br>
-        お客様が「変わった自分」を想像できるよう、
-        未来をイメージさせる言葉を使う。</p>
-      </div>
-    </div>
-    <div class="step-item">
-      <div class="step-left">
-        <div class="step-dot">3</div>
-        <div class="step-line"></div>
-      </div>
-      <div class="step-content">
-        <strong>必要な手段として提案する</strong>
-        <p>「そのお悩みには、〇〇が一番効果的です。」<br>
-        「継続することで、△△の変化が期待できます。」<br>
-        プロとして、自信を持って「言い切り」の表現を使い、提案する。</p>
-      </div>
-    </div>
-    <div class="step-item">
-      <div class="step-left">
-        <div class="step-dot">4</div>
-      </div>
-      <div class="step-content">
-        <strong>一緒に「次」を決める</strong>
-        <p>「まずは〇〇から始めてみましょう。」<br>
-        「次のご来店はいつ頃がいいですか？」<br>
-        お客様の意思を尊重しながら、改善への道筋をつくる。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 クロージング -->
-<section id="closing">
-  <span class="sec-label">06 / Closing</span>
-  <h2 class="sec-title">クロージングは<br>「押し売り」ではない</h2>
-  <div class="gold-divider"></div>
+<!-- 07 クロージング -->
+<section id="sec7">
+  <span class="sec-label">07 / Closing</span>
+  <h2 class="sec-title">クロージングは<br>「背中を押すこと」</h2>
+  <div class="gold-bar"></div>
 
   <div class="sec-body">
     <p>クロージングを「強引に売る行為」だと思っていませんか？</p>
-    <p>本来のクロージングは、<br>
-    <strong>「改善を決断したお客様の背中を、最後に押すこと」</strong>です。
-  
-    カウンセリングからお客様との信頼関係（ラポール）を築いておき
-
-お客様の「理想」と「悩み」を聞き出せていれば、クロージングは「では、その悩みを解決するために、こちらを始めましょう！」と提案するだけの、ごく自然な流れになります。</p>
   </div>
 
-  <div class="mind-card">
+  <div class="mind-dark">
     <div class="mind-en">What Closing Really Means</div>
     <p>クロージングとは、<br>
     お客様が「変わりたい」という気持ちに、<br>
-    プロとして「大丈夫ですよ」と<br>
+    プロとして<strong>「大丈夫ですよ」</strong>と<br>
     背中を押してあげることです。</p>
   </div>
 
   <div class="sec-body">
-    <p>お客様は、カウンセリングの中で「変わりたい」という気持ちが高まっています。<br>
-    ただ、最後の一歩を踏み出すのが怖い。</p>
-    <p>そのときに「よかったら……」と引いてしまうと、<br>
-    お客様はせっかくの気持ちを持ち帰ることになります。</p>
+    <p>お客様はカウンセリング中に「変わりたい」という気持ちが高まっています。ただ、最後の一歩を踏み出すのが怖い。</p>
+    <p>そのときに「よかったら……」と引いてしまうと、<span class="marker-rose">お客様はせっかくの気持ちを持ち帰ることになります。</span></p>
   </div>
 
-  <div class="highlight-box">
-    <p><strong>クロージングの目的は「契約を取ること」ではありません。</strong><br><br>
-    お客様の「悩みを改善したい」という気持ちを、<br>
-    具体的な行動につなげること。<br><br>
-    それがプロとしてのクロージングです。</p>
+  <div class="hbox-green">
+    <p><strong>クロージングの目的は「契約を取ること」ではありません。</strong><br>
+    お客様の「悩みを改善したい」という気持ちを、具体的な行動につなげること。それがプロのクロージングです。</p>
   </div>
 
-  <div class="sec-body">
-    <p><strong>クロージング時に使いやすい言葉：</strong></p>
-  </div>
   <div class="pill-group">
     <span class="pill">「ぜひ一緒に始めましょう」</span>
-    <span class="pill">「〇〇様の理想（目標）を叶えるために、ここからスタートしましょう！」</span>
-    <span class="pill">「続けることで必ず変わります」</span>
+    <span class="pill">「まずは〇回から」</span>
+    <span class="pill">「必ず変わります」</span>
     <span class="pill">「私もサポートします」</span>
     <span class="pill">「いつ頃から始めたいですか？」</span>
   </div>
 </section>
 
-<!-- 07 自信ある話し方 -->
-<section id="confidence">
-  <span class="sec-label">07 / Confidence</span>
+<!-- 08 自信 -->
+<section id="sec8">
+  <span class="sec-label">08 / Confidence</span>
   <h2 class="sec-title">「自信のない話し方」は<br>お客様を不安にさせる</h2>
-  <div class="gold-divider"></div>
+  <div class="gold-bar"></div>
 
   <div class="sec-body">
-    <p>「自信を持て」と言われても、
-    どうすればいいかわからないことも多いですよね。</p>
-    <p>実は、自信があるように見えるかどうかは、<br>
-    <strong>技術ではなく「習慣」</strong>で変えられます。</p>
+    <p>自信は「技術」ではなく<span class="marker">「習慣」</span>で変えられます。</p>
   </div>
 
   <div class="point-list">
@@ -738,16 +1050,14 @@
       <div class="point-num">✓</div>
       <div class="point-text">
         <strong>語尾をはっきり言い切る</strong>
-        「〜かもしれません」「〜だと思います」ではなく、<br>
-        「〜です」「〜ですよ」と言い切る習慣をつける。
+        「〜かもしれません」ではなく「〜ですよ」と言い切る習慣をつける。
       </div>
     </div>
     <div class="point-card">
       <div class="point-num">✓</div>
       <div class="point-text">
         <strong>声のトーンを一段上げる</strong>
-        緊張すると声が小さくなります。<br>
-        意識して少しだけ声を大きく、明るいトーンで話す。
+        緊張すると声が小さくなります。意識して少しだけ明るいトーンで。
       </div>
     </div>
     <div class="point-card">
@@ -760,95 +1070,74 @@
     <div class="point-card">
       <div class="point-num">✓</div>
       <div class="point-text">
-        <strong>「大丈夫です」と言える根拠を持つ</strong>
-        まずは商品を自分が好きになること。さらに施術の効果・お客様の変化事例を知っていると、<br>
-        自然と言葉に確信が生まれます。
-      </div>
-    </div>
-    <div class="point-card">
-      <div class="point-num">✓</div>
-      <div class="point-text">
-        <strong>「笑顔」は最強の武器</strong>
-        どんな言葉より先に、表情がお客様の安心感をつくります。<br>
-        緊張しているときこそ、意識的に笑顔を。
+        <strong>笑顔は最強の武器</strong>
+        どんな言葉より先に、表情がお客様の安心感をつくります。
       </div>
     </div>
   </div>
 
-  <div class="quote-block">
+  <div class="quote">
     <p>自信とは、最初からあるものではありません。<br>
     「経験」と「準備」が積み重なって、<br>
     自然と生まれてくるものです。</p>
   </div>
 </section>
 
-<!-- 08 ベネフィット -->
-<section id="benefit">
-  <span class="sec-label">08 / Benefit</span>
+<!-- 09 ベネフィット -->
+<section id="sec9">
+  <span class="sec-label">09 / Benefit</span>
   <h2 class="sec-title">「施術の説明」より<br>「変わった未来」を伝える</h2>
-  <div class="gold-divider"></div>
+  <div class="gold-bar"></div>
 
   <div class="sec-body">
-    <p>お客様が聞きたいのは、施術の仕組みや成分の説明ではありません。</p>
-    <p><strong>「この施術を受けることで、自分はどう変われるのか」</strong><br>
-    これが、お客様が本当に知りたいことです。</p>
+    <p>お客様が聞きたいのは施術の仕組みではありません。<span class="marker">「この施術を受けたら、自分はどう変われるのか」</span>です。</p>
   </div>
 
   <div class="ng-ok-wrap">
     <div class="ng-card">
-      <span class="ng-label">施術説明（伝わりにくい）</span>
-      <p>「この施術では、ハーブの成分が肌に入り込み、ターンオーバーを促進し……」</p>
+      <span class="ng-label">❌ 施術説明（伝わりにくい）</span>
+      <p>「ハーブの成分が毛穴の汚れを溶かして、ターンオーバーを促進し……」</p>
     </div>
     <div class="ok-card">
-      <span class="ok-label">ベネフィット訴求（伝わる）</span>
+      <span class="ok-label">⭕️ ベネフィット訴求（伝わる）</span>
       <p>「続けることで毛穴が目立ちにくくなって、スッピンでも自信が持てるようになるお客様が多いですよ。」</p>
     </div>
   </div>
 
-  <div class="sec-body">
-    <p>伝えるべきは、<strong>「お客様のその後の生活がどう変わるか」</strong>です。</p>
-  </div>
-
-  <div class="mind-split">
-    <div class="mind-row">
-      <span class="mrow-label">毛穴ケアのベネフィット例</span>
-      <p>「朝のメイクがノリやすくなります」<br>
-      「スッピンに自信が持てるようになります」<br>
-      「化粧崩れしにくくなります」</p>
+  <div class="accordion">
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        <span class="acc-trigger-text">ベネフィット表現の例を見る</span>
+        <span class="acc-trigger-icon">＋</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <p><strong>毛穴ケアの場合</strong><br>
+          「朝のメイクがノリやすくなります」<br>
+          「スッピンに自信が持てるようになります」<br>
+          「化粧崩れしにくくなります」</p>
+          <p><strong>ニキビケアの場合</strong><br>
+          「人前で肌を気にせず過ごせるようになります」<br>
+          「写真を撮られることが楽しくなります」<br>
+          「自信を持って人と会えるようになります」</p>
+        </div>
+      </div>
     </div>
-    <div class="mind-row">
-      <span class="mrow-label">ニキビケアのベネフィット例</span>
-      <p>「人前で肌を気にせず過ごせるようになります」<br>
-      「写真を撮られることが楽しくなります」<br>
-      「自信を持って人と会えるようになります」</p>
-    </div>
-  </div>
-
-  <div class="highlight-box">
-    <p><strong>「お客様の未来をイメージさせる言葉」</strong>が、<br>
-    提案の価値を何倍にも高めます。<br><br>
-    施術の説明は最小限に。<br>
-    「変わった先の自分」をどれだけ具体的に伝えられるかが勝負です。</p>
   </div>
 </section>
 
-<!-- 09 まとめ -->
-<section id="summary">
-  <span class="sec-label">09 / Summary</span>
-  <h2 class="sec-title">まとめ ── 今日から<br>意識してほしいこと</h2>
-  <div class="gold-divider"></div>
-
-  <div class="sec-body">
-    <p>難しいことは何もありません。<br>
-    まずは<strong>この9つ</strong>だけ、意識してみてください。</p>
-  </div>
+<!-- 10 まとめ -->
+<section id="sec10">
+  <span class="sec-label">10 / Summary</span>
+  <h2 class="sec-title">今日から一つだけ<br>変えてみてください</h2>
+  <div class="gold-bar"></div>
 
   <div class="summary-grid">
     <div class="summary-item">
       <div class="summary-icon">🗣</div>
       <div class="summary-text">
-        <strong>声のトーン・表情が信頼をつくる</strong>
-        言葉より先に、雰囲気で安心させる。
+        <strong>声・表情が信頼をつくる</strong>
+        言葉より先に、雰囲気で安心させる。（メラビアンの法則）
       </div>
     </div>
     <div class="summary-item">
@@ -859,10 +1148,10 @@
       </div>
     </div>
     <div class="summary-item">
-      <div class="summary-icon">💛</div>
+      <div class="summary-icon">🎯</div>
       <div class="summary-text">
-        <strong>お客様は「悩みを改善したい」と来店している</strong>
-        提案はその手段。売り込みではない。
+        <strong>意識の矢印をお客様に向ける</strong>
+        「売りたい」ではなく「改善させたい」で動く。
       </div>
     </div>
     <div class="summary-item">
@@ -876,21 +1165,14 @@
       <div class="summary-icon">✨</div>
       <div class="summary-text">
         <strong>ベネフィットで伝える</strong>
-        施術の説明より「変わった先の未来」を言葉にする。
-      </div>
-    </div>
-    <div class="summary-item">
-      <div class="summary-icon">💬</div>
-      <div class="summary-text">
-        <strong>語尾は言い切る</strong>
-        「〜かもしれません」ではなく「〜ですよ」。
+        「変わった先の未来」を言葉にする。
       </div>
     </div>
     <div class="summary-item">
       <div class="summary-icon">🤝</div>
       <div class="summary-text">
         <strong>クロージングは背中を押すこと</strong>
-        お客様の「変わりたい」を、行動につなげる。
+        「変わりたい」という気持ちを行動につなげる。
       </div>
     </div>
     <div class="summary-item">
@@ -900,32 +1182,53 @@
         どんな言葉より先に、表情が安心感をつくる。
       </div>
     </div>
-    <div class="summary-item">
-      <div class="summary-icon">🌟</div>
-      <div class="summary-text">
-        <strong>プロとしての自覚が、お客様の人生を変える</strong>
-        あなたの提案が、お客様の「変われる」を決めることがある。
-      </div>
-    </div>
   </div>
 </section>
 
 
-<footer>
-  © Belle Esthetic Salon ── Counseling Mindset Manual
-</footer>
+<footer>© Belle Esthetic Salon ── Counseling Mindset Manual</footer>
+
+</main>
 
 <script>
-// Intersection Observer for scroll animations
-const sections = document.querySelectorAll('section:not(.hero):not(.final-section)');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// Scroll animation
+const sections = document.querySelectorAll('section');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+sections.forEach(s => obs.observe(s));
+
+// Merabian bar animation
+const chartObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      setTimeout(() => {
+        document.querySelectorAll('.mb-fill').forEach(f => f.classList.add('animate'));
+      }, 300);
+      chartObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.08 });
-sections.forEach(s => observer.observe(s));
+}, { threshold: 0.3 });
+const chart = document.getElementById('merabian-chart');
+if(chart) chartObs.observe(chart);
+
+// Accordion
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  const body = item.querySelector('.acc-body');
+  const isOpen = item.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.acc-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.acc-body').style.maxHeight = '0';
+  });
+
+  if(!isOpen) {
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
 </script>
 </body>
 </html>
